@@ -15,10 +15,10 @@ class Card extends Component
     public $img;
     public $description;
 
-    public function __construct($name,$description)
+    public function __construct($name,$description, $img)
     {
         $this->name = $name;
-        $this->img = `/img/{$name}.jpeg`;
+        $this->img = $img;
         $this->description = $description;
     }
 

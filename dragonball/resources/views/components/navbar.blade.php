@@ -1,4 +1,4 @@
-<nav class="bg-black w-full mx-auto border-b-2 border-[#FBE32C] top-0 sticky">
+<nav class="bg-black w-full mx-auto border-b-2 border-[#FBE32C] top-0 sticky z-10">
     <div class="flex flex-row">
         <div class="flex shrink-0 align-middle justify-center px-5 items-center border-e-2 border-[#FBE23C] relative overflow-hidden"
             style="background-color: transparent;">
