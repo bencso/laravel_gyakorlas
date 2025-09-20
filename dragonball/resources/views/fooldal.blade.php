@@ -2,20 +2,21 @@
 {{-- TODO: Majd megcsinálni a queryt összes filterezésre :) Meg persze designt is --}}
 @section('content')
     <div
-        class="flex align-middle justify-between items-center bg-gradient-to-br from-amber-100 to-amber-100 border border-amber-200 px-5 py-4 text-lg text-amber-950 mb-3 rounded-2xl w-full">
-        <div class="flex gap-3 items-center ">
+        class="flex align-middle flex-col lg:flex-row lg:justify-between lg:items-center gap-3 bg-gradient-to-br from-amber-100 to-amber-100 border border-amber-200 px-5 py-4 text-lg text-amber-950 mb-3 rounded-2xl w-full">
+        <div class="flex gap-3 items-center">
             <p class="font-bold">Lapozás:</p>
-            <div class="flex gap-3">
+            <div class="flex gap-3 w-full lg:w-fit">
+                {{-- TODO: Majd ami ugyanaz és rekurziv class majd azt egyre tenni az ifen kivül :) --}}
                 <a
-                    @if ($previous[0]) class="bg-gradient-to-br from-amber-200 to-amber-300 hover:bg-amber-400 text-amber-900 font-bold py-2 px-4 rounded" href={{ $previous[1] }}@else class="bg-gradient-to-br from-amber-200/50 to-amber-300/50 text-amber-900/50 font-bold py-2 px-4 rounded cursor-not-allowed" @endif>Előző
+                    @if ($previous[0]) class="bg-gradient-to-br text-center from-amber-200 to-amber-300 hover:bg-amber-400 text-amber-900 font-bold py-2 px-4 rounded w-full overflow-clip text-nowrap text-lg lg:w-fit" href={{ $previous[1] }}@else class="bg-gradient-to-br from-amber-200/50 to-amber-300/50 text-amber-900/50 font-bold text-center py-2 overflow-clip text-nowrap px-4 rounded cursor-not-allowed w-full lg:w-fit" @endif>Előző
                     oldal</a>
                 <a
-                    @if ($next[0]) class="bg-gradient-to-br from-amber-200 to-amber-300 hover:bg-amber-400 text-amber-900 font-bold py-2 px-4 rounded" href={{ $next[1] }}@else class="bg-gradient-to-br from-amber-200/50 to-amber-300/50 text-amber-900/60 font-bold py-2 px-4 rounded cursor-not-allowed" @endif>Következő
+                    @if ($next[0]) class="bg-gradient-to-br from-amber-200 to-amber-300 hover:bg-amber-400 text-amber-900 font-bold py-2 px-4 rounded w-full overflow-clip text-nowrap lg:w-fit" href={{ $next[1] }}@else class="bg-gradient-to-br from-amber-200/50 to-amber-300/50 text-amber-900/60 font-bold py-2 px-4 rounded text-center cursor-not-allowed overflow-clip text-nowrap w-full lg:w-fit" @endif>Következő
                     oldal</a>
             </div>
         </div>
 
-        <div class="inline-block relative w-64">
+        <div class="inline-block relative lg:w-64">
             <form method="GET" action="">
                 <input type="hidden" value={{ $page }} name="page" />
                 <select name="limit" onchange="this.form.submit()"
@@ -25,7 +26,8 @@
                     @for ($i = 10; $i < $pageLimit; $i++)
                         @if ($i % 10 == 0)
                             {
-                            <option value={{ $i }} {{ request('limit') == $i ? 'selected' : '' }}>{{ $i }} karakter</option>
+                            <option value={{ $i }} {{ request('limit') == $i ? 'selected' : '' }}>
+                                {{ $i }} karakter</option>
                             }
                         @endif
                     @endfor
@@ -38,7 +40,7 @@
             </div>
         </div>
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-full gap-5">
+    <div class="grid grid-cols-1 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 w-full gap-5">
         @foreach ($items as $character)
             <x-card name="{{ $character['name'] }}" description="{{ $character['description'] }}"
                 img="{{ $character['image'] }}" />

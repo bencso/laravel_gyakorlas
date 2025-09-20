@@ -1,7 +1,7 @@
 <div
     class="w-full rounded-2xl select-none p-6 flex flex-col gap-4 h-[500px] overflow-hidden shadow-2xl bg-gradient-to-br from-amber-100 to-amber-100 border border-amber-200">
     <div class="flex items-center justify-center mb-2">
-        <img draggable="false"
+        <img draggable="false" loading="lazy"
             class="w-[120px] select-none h-[120px] rounded-full shadow-md border-4 border-amber-200 object-cover object-top"
             src="{{ $img }}" alt="{{ $name }}">
     </div>

@@ -6,7 +6,7 @@
                 style="background-color: white; background-image: url('{{ asset('images/navbar-bg.jpg') }}'); background-size: 150%; background-repeat: no-repeat; background-position: center center; background-blend-mode: difference; opacity: 0.5;">
             </div>
             <img onclick="window.location.href='{{ url('/') }}'" src="{{ asset('images/navbar-title.png') }}"
-                alt="Dragon Ball csata" class="h-8 mx-auto w-auto z-10 relative" style="opacity: 1;" />
+                alt="Dragon Ball csata" class="h-5 mx-auto w-auto z-10 lg:h-8 relative" style="opacity: 1;" />
         </div>
         <div class="relative py-5 px-5 flex items-center justify-between w-full">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
